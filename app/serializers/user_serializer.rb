@@ -1,4 +1,8 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name
-  has_many :scores
+  attributes :name, :gamescores,:id#, :scores
+
+  def gamescores
+  self.object.scores.map { |e| e.gamescore }.join.to_i
+
+  end
 end

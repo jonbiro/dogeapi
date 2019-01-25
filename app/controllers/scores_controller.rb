@@ -3,7 +3,7 @@ class ScoresController < ApplicationController
 
   # GET /scores
   def index
-    @scores = Score.all
+    @scores = Score.all.sort_by{|e|e.gamescore}.reverse
 
     render json: @scores
   end

@@ -1,4 +1,7 @@
 class ScoreSerializer < ActiveModel::Serializer
-  attributes :id, :gamescore
-  has_one :user
+  attributes :gamescore, :username
+
+  def username
+    self.object.user.name
+  end
 end
